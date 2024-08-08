@@ -7,6 +7,7 @@ using PolyDo.Application.Services;
 using PolyDo.Domain.Entities;
 using PolyDo.Domain.Repositories;
 using PolyDo.Infrastructure;
+using PolyDo.Infrastructure.Repositories;
 using PolyDo.Model;
 using System.Text;
 
@@ -18,17 +19,25 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 #region services 
 builder.Services.AddScoped<IUserService, UserService>();
-
+builder.Services.AddScoped<IParentTaskService, ParentTaskService>();
+builder.Services.AddScoped<ISubTaskService, SubTaskService>();
+builder.Services.AddScoped<ITaskListService, TaskListService>();
 #endregion
 
 #region repositories 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IParentTaskRepository, ParentTaskRepository>();
+builder.Services.AddScoped<ISubTaskRepository, SubTaskRepository>();
+builder.Services.AddScoped<ITaskListRepository, TaskListRepository>();
 #endregion
 
 #region mapper
 var mapperConfig = new MapperConfiguration(cfg =>
 {
     cfg.CreateMap<User, UserDto>().ReverseMap();
+    cfg.CreateMap<ParentTask, ParentTaskDto>().ReverseMap();
+    cfg.CreateMap<SubTask, SubTaskDto>().ReverseMap();
+    cfg.CreateMap<TaskList, TaskListDto>().ReverseMap();
 });
 
 IMapper mapper = mapperConfig.CreateMapper();
