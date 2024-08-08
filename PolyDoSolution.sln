@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyDo", "PolyDo\PolyDo.csproj", "{D925EEB7-FD5D-49DA-9378-681634BF701F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolyDo", "PolyDo\PolyDo.csproj", "{D925EEB7-FD5D-49DA-9378-681634BF701F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyDo.Application", "PolyDo.Application\PolyDo.Application.csproj", "{07A8F1BE-85FA-402B-B1DE-DD80367A3C34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolyDo.Application", "PolyDo.Application\PolyDo.Application.csproj", "{07A8F1BE-85FA-402B-B1DE-DD80367A3C34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyDo.Domain", "PolyDo.Domain\PolyDo.Domain.csproj", "{3410C165-4F0E-43FB-8518-7A613631932B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolyDo.Domain", "PolyDo.Domain\PolyDo.Domain.csproj", "{3410C165-4F0E-43FB-8518-7A613631932B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyDo.Infrastructure", "PolyDo.Infrastructure\PolyDo.Infrastructure.csproj", "{EA809DA2-C0E1-4EBC-A6E0-4DB7633FB6A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolyDo.Infrastructure", "PolyDo.Infrastructure\PolyDo.Infrastructure.csproj", "{EA809DA2-C0E1-4EBC-A6E0-4DB7633FB6A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
