@@ -6,9 +6,9 @@ using PolyDo.Domain.Repositories;
 
 namespace PolyDo.Controllers {
     [ApiController]
-    [Route("tasks")]
+    [Route("polydo/tasks")]
     [Authorize]
-    public class ParentTasksController : ControllerBase {
+    public class ParentTasksController : Controller {
         private readonly IParentTaskService _parentTaskService;
         private readonly ISubTaskService _subTaskService;
 

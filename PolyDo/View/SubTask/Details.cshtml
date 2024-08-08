@@ -1,0 +1,14 @@
+﻿@model PolyDo.Application.DTOs.SubTaskDto
+
+<h2>Subtask Details</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <p>@Model.Description</p>
+    <p>Parent Task: @Model.ParentTask.Title</p>
+</div>
+
+<p>
+    <a href="/Subtasks/Edit/@Model.Id">Edit</a> |
+    <a href="/Subtasks/Delete/@Model.Id">Delete</a>
+</p>

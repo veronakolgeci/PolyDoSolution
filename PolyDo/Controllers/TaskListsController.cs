@@ -5,10 +5,10 @@ using PolyDo.Domain.Repositories;
 using System.Collections.Generic;
 
 namespace PolyDo.Controllers {
-    [Route("api/[controller]")]
+    [Route("polydo/[controller]")]
     [ApiController]
     [Authorize]
-    public class TaskListsController : ControllerBase {
+    public class TaskListsController : Controller {
         private readonly ITaskListService _taskListService;
 
         public TaskListsController(ITaskListService taskListService) {
