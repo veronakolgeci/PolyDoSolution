@@ -8,5 +8,6 @@ namespace PolyDo.Application.DTOs {
         public DateTime DueDate { get; set; }
         public bool IsComplete { get; set; }
         public int? ListId { get; set; }
+        public List<SubTaskDto> SubTasks { get; set; }
     }
 }

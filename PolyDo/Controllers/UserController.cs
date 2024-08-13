@@ -11,14 +11,24 @@ using System.Text;
 
 namespace PolyDo.Controllers {
     [ApiController]
-    [Route("[controller]")]
-    public class UserController : ControllerBase {
+    [Route("polydo/user")]
+    public class UserController : Controller {
         private readonly JwtSettings _jwtSettings;
         private readonly IUserService _userService;
 
         public UserController(IOptions<JwtSettings> jwtSettings, IUserService userService) {
             _jwtSettings = jwtSettings.Value;
             _userService = userService;
+        }
+
+        [HttpGet("login")]
+        public IActionResult Login() {
+            return View();
+        }
+
+        [HttpGet("register")]
+        public IActionResult Register() {
+            return View();
         }
 
         [HttpPost("register")]
@@ -31,7 +41,7 @@ namespace PolyDo.Controllers {
             await _userService.AddAsync(userDto);
 
             var token = GenerateJwtToken(userDto.UserName);
-            return Ok(new { Message = "User registered successfully", Token = token });
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost("login")]
@@ -42,7 +52,7 @@ namespace PolyDo.Controllers {
             }
 
             var token = GenerateJwtToken(user.UserName);
-            return Ok(new { Token = token });
+            return RedirectToAction("Index", "Home");
         }
 
         private string GenerateJwtToken(string username) {

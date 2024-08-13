@@ -5,10 +5,10 @@ using PolyDo.Domain.Entities;
 using PolyDo.Domain.Repositories;
 
 namespace PolyDo.Controllers {
-    [Route("api/[controller]")]
+    [Route("polydo/[controller]")]
     [ApiController]
     [Authorize]
-    public class SubTasksController : ControllerBase {
+    public class SubTasksController : Controller {
         private readonly ISubTaskService _subTaskService;
         private readonly IParentTaskService _parentTaskService;
 

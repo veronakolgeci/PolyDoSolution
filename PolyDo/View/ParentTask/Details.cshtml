@@ -1,0 +1,38 @@
+﻿@model PolyDo.Application.DTOs.ParentTaskDto
+
+<h2>Task Details</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <p>@Model.Description</p>
+    <p>@Model.DueDate</p>
+</div>
+
+<h3>Subtasks</h3>
+<p>
+    <a href="/Subtasks/Create?taskId=@Model.Id">Add New Subtask</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subtask in Model.SubTasks)
+        {
+            <tr>
+                <td>@subtask.Title</td>
+                <td>@subtask.Description</td>
+                <td>
+                    <a href="/Subtasks/Details/@subtask.Id">Details</a> |
+                    <a href="/Subtasks/Edit/@subtask.Id">Edit</a> |
+                    <a href="/Subtasks/Delete/@subtask.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
