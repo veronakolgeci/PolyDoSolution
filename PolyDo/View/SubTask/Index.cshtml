@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PolyDo.Application.DTOs.SubTaskDto>
+
+@{
+    ViewData["Title"] = "Subtasks";
+}
+
+<h2>Subtasks</h2>
+
+<p>
+    <a href="/Subtasks/Create">Create New Subtask</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subtask in Model) {
+            <tr>
+                <td>@subtask.Title</td>
+                <td>@subtask.Description</td>
+                <td>
+                    <a href="/Subtasks/Details/@subtask.Id">Details</a> |
+                    <a href="/Subtasks/Edit/@subtask.Id">Edit</a> |
+                    <a href="/Subtasks/Delete/@subtask.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

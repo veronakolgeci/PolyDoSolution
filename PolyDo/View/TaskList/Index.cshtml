@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PolyDo.Application.DTOs.TaskListDto>
+
+@{
+    ViewData["Title"] = "Lists";
+}
+
+<h2>Lists</h2>
+
+<p>
+    <a href="/Lists/Create">Create New List</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Tasks Count</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var list in Model) {
+            <tr>
+                <td>@list.Name</td>
+                <td>@list.Description</td>
+                <td>@list.Tasks.Count()</td>
+                <td>
+                    <a href="/Lists/Details/@list.Id">Details</a> |
+                    <a href="/Lists/Edit/@list.Id">Edit</a> |
+                    <a href="/Lists/Delete/@list.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

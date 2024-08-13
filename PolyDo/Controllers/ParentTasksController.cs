@@ -60,13 +60,25 @@ namespace PolyDo.Controllers {
 
         [HttpPost("{taskId}/subtasks")]
         public async Task<IActionResult> AddSubTask(int taskId, [FromBody] SubTaskDto subTaskDto) {
-            var task = await _parentTaskService.GetTaskByIdAsync(taskId);
-            if (task == null) {
+            var parentTask = await _parentTaskService.GetTaskByIdAsync(taskId);
+            if (parentTask == null) {
                 return NotFound();
             }
 
             await _subTaskService.AddSubTaskAsync(subTaskDto);
-            return Ok(task);
+
+            var subTaskId = subTaskDto.Id;
+
+            return CreatedAtAction(nameof(GetSubTaskById), new { id = subTaskId }, subTaskDto);
+        }
+
+        [HttpGet("subtasks/{id}")]
+        public async Task<IActionResult> GetSubTaskById(int id) {
+            var subTask = await _subTaskService.GetSubTaskByIdAsync(id);
+            if (subTask == null) {
+                return NotFound();
+            }
+            return Ok(subTask);
         }
     }
 
